@@ -11,8 +11,7 @@
 #
 # Requirement(s):     linux, python, psutils (library) | https://psutil.readthedocs.io/
 #
-# Changelog:
-#                     * 12/18/2020: Igor Petrenko
+# Changelog:          * 12/18/2020: Igor Petrenko
 #                     - Initial release
 #
 # Usage:
