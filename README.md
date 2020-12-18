@@ -1,7 +1,7 @@
 # This python script collects metrics about linux server. 
 Script usage examples:
 
-# OS release: #
+### OS release: ###
 ```
 ./metrics os
 System: Linux
@@ -38,13 +38,13 @@ virtual buffers: 0
 virtual cached: 1210740736
 virtual shared: 117174272
 ```
-# Uptime:
+### Uptime: ###
 ```
 ./metrics uptime
 System boot time: 2020-07-02 19:59:46
 ```
 
-# Disk usage:
+### Disk usage: ###
 ```
 ./metrics disk
 disk_usage for / total: 26831990784
