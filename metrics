@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+# Version 1
+# Script shows metrics about this linux server
+#import os
+import psutil
+#import sys
+
+#if __name__ == "__main__":
+#    if len (sys.argv) > 1:
+#        print ("Hello, {}!".format (sys.argv[1] ) )
+#    else:
+#        print ("Hello, world!")
+
+print("Number of cores in system", psutil.cpu_count()) 
+print("\nNumber of physical cores in system",) 
+
+virtual_total = psutil.virtual_memory().total
+print("virtual total",virtual_total)
+virtual_available = psutil.virtual_memory().available
+print("virtual available",virtual_available)
+virtual_used = psutil.virtual_memory().used
+print("virtual used",virtual_used)
+virtual_free = psutil.virtual_memory().free
+print("virtual free",virtual_free)
+virtual_active = psutil.virtual_memory().active
+print("virtual active",virtual_active)
+virtual_inactive = psutil.virtual_memory().inactive
+print("virtual inactive",virtual_inactive)
+virtual_buffers = psutil.virtual_memory().buffers
+print("virtual buffers",virtual_buffers)
+virtual_cached = psutil.virtual_memory().cached
+print("virtual cached",virtual_cached)
+virtual_shared = psutil.virtual_memory().shared
+print("virtual shared",virtual_shared)
