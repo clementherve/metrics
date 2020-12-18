@@ -1,14 +1,14 @@
 # This python script collects metrics about linux server.
 # Script usage examples:
 
-### OS release ###
+### OS release: ###
 ```
 ./metrics os
 System: Linux
 Platform: 3.10.0-1127.13.1.el7.x86_64
 machine: x86_64
 ```
-### CPU metrics ###
+### CPU metrics: ###
 ```
 ./metrics cpu
 Number of cores in system: 1
@@ -25,7 +25,7 @@ system.cpu.steal: 930.16
 system.cpu.guest: 0.0
 ```
 
-### Memory metrics ###
+### Memory metrics: ###
 ```
 ./metrics memory
 virtual total: 1927180288
