@@ -1,5 +1,4 @@
-# This python script collects metrics about linux server.
-# Script usage examples:
+# This python script collects metrics about linux server. Script usage examples:
 
 ### OS release: ###
 ```
