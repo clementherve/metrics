@@ -50,7 +50,7 @@ def disk():
     print("percent of disk_usage:",disk_usage_percent,"%","/")
 
 def cpu():
-    # CPU metrics
+    # CPU frequency and metrics
     cpu_freq_current = psutil.cpu_freq().current
     print("CPU frequency current:",cpu_freq_current,"MHz")
     print("Number of cores in system:", psutil.cpu_count())
@@ -78,23 +78,23 @@ def cpu():
 def memory():
     # Memory metrics
     virtual_total = psutil.virtual_memory().total
-    print("virtual total:",virtual_total)
+    print("virtual total: %.2f GB" % (virtual_total / (1024.0 ** 3)))
     virtual_available = psutil.virtual_memory().available
-    print("virtual available:",virtual_available)
+    print("virtual available: %.2f GB" % (virtual_available / (1024.0 ** 3)))
     virtual_used = psutil.virtual_memory().used
-    print("virtual used:",virtual_used)
+    print("virtual used: %.2f GB" % (virtual_used / (1024.0 ** 3)))
     virtual_free = psutil.virtual_memory().free
-    print("virtual free:",virtual_free)
+    print("virtual free: %.2f GB" % (virtual_free / (1024.0 ** 3)))
     virtual_active = psutil.virtual_memory().active
-    print("virtual active:",virtual_active)
+    print("virtual active: %.2f GB" % (virtual_active / (1024.0 ** 3)))
     virtual_inactive = psutil.virtual_memory().inactive
-    print("virtual inactive:",virtual_inactive)
+    print("virtual inactive: %.2f GB" % (virtual_inactive / (1024.0 ** 3)))
     virtual_buffers = psutil.virtual_memory().buffers
-    print("virtual buffers:",virtual_buffers)
+    print("virtual buffers: %.2f GB" % (virtual_buffers / (1024.0 ** 3)))
     virtual_cached = psutil.virtual_memory().cached
-    print("virtual cached:",virtual_cached)
+    print("virtual cached: %.2f GB" % (virtual_cached / (1024.0 ** 3)))
     virtual_shared = psutil.virtual_memory().shared
-    print("virtual shared:",virtual_shared)
+    print("virtual shared: %.2f GB" % (virtual_shared / (1024.0 ** 3)))
 
 def swap():
     # Swap usage
