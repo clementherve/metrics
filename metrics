@@ -4,10 +4,11 @@
 #
 # Description: this python script collects metrics about linux server:
 #                     - OS release
-#                     - CPU metrics
+#                     - CPU frequency and metrics
 #                     - Memory metrics
 #                     - Uptime
 #                     - Disk usage
+#                     - Swap usage
 #
 # Requirement(s):     linux, python, psutils (library) | https://psutil.readthedocs.io/
 #
@@ -20,6 +21,7 @@
 #                     ./metrics memory
 #                     ./metrics uptime
 #                     ./metrics disk
+#                     ./metrics swap
 import psutil
 import datetime
 import platform
@@ -39,16 +41,18 @@ def uptime():
 def disk():
     # Disk usage metrics for '/'
     disk_usage_total = psutil.disk_usage('/').total
-    print("disk_usage for / total:",disk_usage_total)
+    print("total %.2f GB /" % (disk_usage_total / (1024.0 ** 3)))
     disk_usage_used = psutil.disk_usage('/').used
-    print("disk_usage for / used:",disk_usage_used)
+    print("used %.2f GB /" % (disk_usage_used / (1024.0 ** 3)))
     disk_usage_free = psutil.disk_usage('/').free
-    print("disk_usage for / free:",disk_usage_free)
+    print("free %.2f GB /" % (disk_usage_free / (1024.0 ** 3)))
     disk_usage_percent = psutil.disk_usage('/').percent
-    print("disk_usage for / percent:",disk_usage_percent,"%")
+    print("percent of disk_usage:",disk_usage_percent,"%","/")
 
 def cpu():
     # CPU metrics
+    cpu_freq_current = psutil.cpu_freq().current
+    print("CPU frequency current:",cpu_freq_current,"MHz")
     print("Number of cores in system:", psutil.cpu_count())
     print("Number of physical cores in system:", psutil.cpu_count(logical=False))
     print("Number of logical cores in system:", psutil.cpu_count(logical=True))
@@ -92,6 +96,21 @@ def memory():
     virtual_shared = psutil.virtual_memory().shared
     print("virtual shared:",virtual_shared)
 
+def swap():
+    # Swap usage
+    swap_total = psutil.swap_memory().total
+    print("swap total:",swap_total)
+    swap_used = psutil.swap_memory().used
+    print("swap used:",swap_used)
+    swap_free = psutil.swap_memory().free
+    print("swap free:",swap_free)
+    swap_percent = psutil.swap_memory().percent
+    print("swap percent:",swap_percent)
+    swap_sin = psutil.swap_memory().sin
+    print("swap sin:",swap_sin)
+    swap_sout = psutil.swap_memory().sout
+    print("swap sout:",swap_sout)
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and len(sys.argv) < 3:
         if sys.argv[1] == "os":
@@ -104,6 +123,8 @@ if __name__ == "__main__":
             disk()
         if sys.argv[1] == "uptime":
             uptime()
+        if sys.argv[1] == "swap":
+            swap()
     else:
-        sys.stderr.write("""Please enter os|cpu|memory|disk|uptime\n""")
+        sys.stderr.write("""Please enter os|cpu|memory|disk|uptime|swap\n""")
         sys.exit
