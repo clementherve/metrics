@@ -25,7 +25,6 @@ system.cpu.softirq: 112.07
 system.cpu.steal: 936.76
 system.cpu.guest: 0.0
 ```
-
 #### Disk usage:
 ```
 ./metrics disk
@@ -34,7 +33,6 @@ used 3.97 GB /
 free 21.02 GB /
 percent of disk_usage: 15.9 % /
 ```
-
 #### Memory metrics:
 ```
 ./metrics memory
@@ -52,4 +50,14 @@ virtual shared: 117174272
 ```
 ./metrics uptime
 System boot time: 2020-07-02 19:59:46
+```
+#### Memory metrics:
+```
+./metrics swap
+swap total: 0
+swap used: 0
+swap free: 0
+swap percent: 0.0
+swap sin: 0
+swap sout: 0
 ```
