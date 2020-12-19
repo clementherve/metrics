@@ -51,7 +51,7 @@ virtual shared: 117174272
 ./metrics uptime
 System boot time: 2020-07-02 19:59:46
 ```
-#### Memory metrics:
+#### Swap usage:
 ```
 ./metrics swap
 swap total: 0
