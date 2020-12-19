@@ -36,15 +36,15 @@ percent of disk_usage: 15.9 % /
 #### Memory metrics:
 ```
 ./metrics memory
-virtual total: 1927180288
-virtual available: 1351569408
-virtual used: 274817024
-virtual free: 441622528
-virtual active: 679624704
-virtual inactive: 572559360
-virtual buffers: 0
-virtual cached: 1210740736
-virtual shared: 117174272
+virtual total: 1.79 GB
+virtual available: 1.27 GB
+virtual used: 0.24 GB
+virtual free: 0.42 GB
+virtual active: 0.63 GB
+virtual inactive: 0.53 GB
+virtual buffers: 0.00 GB
+virtual cached: 1.13 GB
+virtual shared: 0.11 GB
 ```
 #### Uptime:
 ```
