@@ -9,6 +9,7 @@
 #                     - Uptime
 #                     - Disk usage
 #                     - Swap usage
+#                     - Processes
 #
 # Requirement(s):     linux, python, psutils (library) | https://psutil.readthedocs.io/
 #
@@ -22,6 +23,7 @@
 #                     ./metrics uptime
 #                     ./metrics disk
 #                     ./metrics swap
+#                     ./metrics processes
 import psutil
 import datetime
 import platform
@@ -32,7 +34,7 @@ def os():
     # OS release
     print("System:",platform.system())
     print("Platform:",platform.release())
-    print("machine:",platform.machine())
+    print("Machine:",platform.machine())
 
 def uptime():
     # System boot time converted to human readable format
@@ -111,6 +113,12 @@ def swap():
     swap_sout = psutil.swap_memory().sout
     print("swap sout:",swap_sout)
 
+def processes():
+    curProcesses = psutil.process_iter()
+    print("PID | ProcessName | Username")
+    for eachProcess in curProcesses:
+        print((eachProcess.pid),"|",(eachProcess.name()),"|",(eachProcess.username()))
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and len(sys.argv) < 3:
         if sys.argv[1] == "os":
@@ -125,6 +133,8 @@ if __name__ == "__main__":
             uptime()
         if sys.argv[1] == "swap":
             swap()
+        if sys.argv[1] == "processes":
+            processes()
     else:
-        sys.stderr.write("""Please enter os|cpu|memory|disk|uptime|swap\n""")
+        sys.stderr.write("""Please enter os|cpu|memory|disk|uptime|swap|processes\n""")
         sys.exit
