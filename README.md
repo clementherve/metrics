@@ -1,14 +1,14 @@
 # This python script collects metrics about linux server. 
-Python script usage examples:
+#### Python script usage examples:
 
-#### OS release: 
+OS release: 
 ```
 ./metrics os
 System: Linux
 Platform: 3.10.0-1127.13.1.el7.x86_64
 machine: x86_64
 ```
-#### CPU frequency and metrics:
+CPU frequency and metrics:
 ```
 ./metrics cpu
 CPU frequency current: 2499.998 MHz
@@ -25,7 +25,7 @@ system.cpu.softirq: 112.07
 system.cpu.steal: 936.76
 system.cpu.guest: 0.0
 ```
-#### Disk usage:
+Disk usage:
 ```
 ./metrics disk
 total 24.99 GB /
@@ -33,7 +33,7 @@ used 3.97 GB /
 free 21.02 GB /
 percent of disk_usage: 15.9 % /
 ```
-#### Memory metrics:
+Memory metrics:
 ```
 ./metrics memory
 virtual total: 1.79 GB
@@ -46,12 +46,12 @@ virtual buffers: 0.00 GB
 virtual cached: 1.13 GB
 virtual shared: 0.11 GB
 ```
-#### Uptime:
+Uptime:
 ```
 ./metrics uptime
 System boot time: 2020-07-02 19:59:46
 ```
-#### Swap usage:
+Swap usage:
 ```
 ./metrics swap
 swap total: 0
@@ -61,7 +61,7 @@ swap percent: 0.0
 swap sin: 0
 swap sout: 0
 ```
-#### Processes:
+Processes:
 ```
 ./metrics processes
 PID | ProcessName | Username
@@ -91,7 +91,7 @@ PID | ProcessName | Username
 29 | cpuhp/4 | root
 30 | migration/4 | root
 ```
-Docker image usage examples:
+#### Docker image usage examples:
 ```
 $ docker build -t metrics_img .
 $ docker run -it metrics_img metrics processes
