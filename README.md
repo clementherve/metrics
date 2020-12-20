@@ -1,5 +1,5 @@
 # This python script collects metrics about linux server. 
-Script usage examples:
+Python script usage examples:
 
 #### OS release: 
 ```
@@ -90,4 +90,11 @@ PID | ProcessName | Username
 28 | kworker/3:0H-kblockd | root
 29 | cpuhp/4 | root
 30 | migration/4 | root
+```
+Docker image usage examples:
+```
+$ docker build -t metrics_img .
+$ docker run -it metrics_img metrics processes
+PID | ProcessName | Username
+1 | python3 | root
 ```
