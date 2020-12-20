@@ -1,5 +1,5 @@
 # This python script collects metrics about linux server. 
-#### Python script usage examples:
+#### 1) Python script usage examples:
 
 OS release: 
 ```
@@ -11,18 +11,19 @@ machine: x86_64
 CPU frequency and metrics:
 ```
 ./metrics cpu
-CPU frequency current: 2499.998 MHz
-Number of cores in system: 1
-Number of physical cores in system: 1
-Number of logical cores in system: 1
-system.cpu.user: 16702.86
-system.cpu.system: 12892.77
-system.cpu.idle: 14647792.72
-system.cpu.nice: 397.72
-system.cpu.iowait: 546.15
-system.cpu.irq: 0.0
-system.cpu.softirq: 112.07
-system.cpu.steal: 936.76
+```
+CPU frequency current: 2381.679833333333 MHz
+Number of cores in system: 12
+Number of physical cores in system: 6
+Number of logical cores in system: 12
+system.cpu.user: 965.59
+system.cpu.system: 257.64
+system.cpu.idle: 34391.71
+system.cpu.nice: 8.17
+system.cpu.iowait: 12.14
+system.cpu.irq: 84.03
+system.cpu.softirq: 30.42
+system.cpu.steal: 0.0
 system.cpu.guest: 0.0
 ```
 Disk usage:
@@ -36,15 +37,15 @@ percent of disk_usage: 15.9 % /
 Memory metrics:
 ```
 ./metrics memory
-virtual total: 1.79 GB
-virtual available: 1.27 GB
-virtual used: 0.24 GB
-virtual free: 0.42 GB
-virtual active: 0.63 GB
-virtual inactive: 0.53 GB
-virtual buffers: 0.00 GB
-virtual cached: 1.13 GB
-virtual shared: 0.11 GB
+virtual total: 15.42 GB
+virtual available: 11.12 GB
+virtual used: 3.37 GB
+virtual free: 8.12 GB
+virtual active: 1.90 GB
+virtual inactive: 4.37 GB
+virtual buffers: 0.15 GB
+virtual cached: 3.78 GB
+virtual shared: 0.62 GB
 ```
 Uptime:
 ```
@@ -54,9 +55,10 @@ System boot time: 2020-07-02 19:59:46
 Swap usage:
 ```
 ./metrics swap
-swap total: 0
+```
+swap total: 12641624064
 swap used: 0
-swap free: 0
+swap free: 12641624064
 swap percent: 0.0
 swap sin: 0
 swap sout: 0
@@ -91,10 +93,25 @@ PID | ProcessName | Username
 29 | cpuhp/4 | root
 30 | migration/4 | root
 ```
-#### Docker image usage examples:
+#### 2) Docker image usage examples:
 ```
+$ ls
+Dockerfile  metrics  README.md
 $ docker build -t metrics_img .
-$ docker run -it metrics_img metrics processes
+$ docker run -it --pid=host metrics_img metrics processes |head -15
 PID | ProcessName | Username
-1 | python3 | root
+1 | systemd | root
+2 | kthreadd | root
+3 | rcu_gp | root
+4 | rcu_par_gp | root
+6 | kworker/0:0H-kblockd | root
+9 | mm_percpu_wq | root
+10 | ksoftirqd/0 | root
+11 | rcu_sched | root
+12 | migration/0 | root
+13 | cpuhp/0 | root
+14 | cpuhp/1 | root
+15 | migration/1 | root
+16 | ksoftirqd/1 | root
+18 | kworker/1:0H-kblockd | root
 ```
