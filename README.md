@@ -64,7 +64,7 @@ swap sout: 0
 #### Processes:
 ```
 ./metrics processes
-PID | Name | Username
+PID | ProcessName | Username
 1 | systemd | root
 2 | kthreadd | root
 3 | rcu_gp | root
