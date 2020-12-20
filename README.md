@@ -11,7 +11,6 @@ machine: x86_64
 CPU frequency and metrics:
 ```
 ./metrics cpu
-```
 CPU frequency current: 2381.679833333333 MHz
 Number of cores in system: 12
 Number of physical cores in system: 6
