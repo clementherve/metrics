@@ -54,7 +54,6 @@ System boot time: 2020-07-02 19:59:46
 Swap usage:
 ```
 ./metrics swap
-```
 swap total: 12641624064
 swap used: 0
 swap free: 12641624064
