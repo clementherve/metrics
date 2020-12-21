@@ -63,53 +63,29 @@ swap sout: 0
 ```
 Processes:
 ```
-./metrics processes
+$ ./metrics processes | head -10
 PID | ProcessName | Username
 1 | systemd | root
 2 | kthreadd | root
 3 | rcu_gp | root
 4 | rcu_par_gp | root
 6 | kworker/0:0H-kblockd | root
-7 | kworker/0:1-rcu_gp | root
 9 | mm_percpu_wq | root
 10 | ksoftirqd/0 | root
 11 | rcu_sched | root
 12 | migration/0 | root
-13 | cpuhp/0 | root
-14 | cpuhp/1 | root
-15 | migration/1 | root
-16 | ksoftirqd/1 | root
-18 | kworker/1:0H-kblockd | root
-19 | cpuhp/2 | root
-20 | migration/2 | root
-21 | ksoftirqd/2 | root
-23 | kworker/2:0H-kblockd | root
-24 | cpuhp/3 | root
-25 | migration/3 | root
-26 | ksoftirqd/3 | root
-28 | kworker/3:0H-kblockd | root
-29 | cpuhp/4 | root
-30 | migration/4 | root
 ```
 #### 2) Docker image usage examples:
+ * It displays information about processes running on the host machine from within the container environment. 
+ * It displays usernames for processes running on the host machine from within the container environment. 
 ```
 $ ls
 Dockerfile  metrics  README.md
 $ docker build -t metrics_img .
-$ docker run -it --pid=host metrics_img metrics processes |head -15
+$ docker run -it --pid=host -v /etc/passwd:/etc/passwd:ro metrics_img metrics processes |grep -v root |head -5
 PID | ProcessName | Username
-1 | systemd | root
-2 | kthreadd | root
-3 | rcu_gp | root
-4 | rcu_par_gp | root
-6 | kworker/0:0H-kblockd | root
-9 | mm_percpu_wq | root
-10 | ksoftirqd/0 | root
-11 | rcu_sched | root
-12 | migration/0 | root
-13 | cpuhp/0 | root
-14 | cpuhp/1 | root
-15 | migration/1 | root
-16 | ksoftirqd/1 | root
-18 | kworker/1:0H-kblockd | root
+937 | systemd-resolved | systemd-resolve
+960 | dbus-broker-launch | dbus
+961 | dbus-broker | dbus
+965 | avahi-daemon | avahi
 ```
